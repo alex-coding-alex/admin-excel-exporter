@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Enums\Diet;
 use App\Filament\Resources\diet_formResource\Pages;
 use App\Models\DietForm;
 use Filament\Forms\Components\Checkbox;
@@ -41,7 +42,8 @@ class DietFormResource extends Resource
 
                 Checkbox::make('allergies'),
 
-                TextInput::make('diet')
+                Select::make('diet')
+                    ->options(Diet::class)
                     ->required(),
 
                 Select::make('user_id')
