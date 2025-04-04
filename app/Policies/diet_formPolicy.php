@@ -37,11 +37,11 @@ class diet_formPolicy
 
     public function restore(User $user, diet_form $diet_form): bool
     {
-        return $diet_form->user_id === $user->id;
+        return false;
     }
 
     public function forceDelete(User $user, diet_form $diet_form): bool
     {
-        return $diet_form->user_id === $user->id;
+        return false;
     }
 }
