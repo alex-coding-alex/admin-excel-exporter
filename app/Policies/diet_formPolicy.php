@@ -12,18 +12,36 @@ class diet_formPolicy
 
     public function viewAny(User $user): bool
     {
-        //
+        return true; // Allow viewing all diet forms
     }
 
-    public function view(User $user, diet_form $diet_form): bool {}
+    public function view(User $user, diet_form $diet_form): bool
+    {
+        return $diet_form->user_id === $user->id;
+    }
 
-    public function create(User $user): bool {}
+    public function create(User $user): bool
+    {
+        return true; // Allow all users to create a diet form
+    }
 
-    public function update(User $user, diet_form $diet_form): bool {}
+    public function update(User $user, diet_form $diet_form): bool
+    {
+        return $diet_form->user_id === $user->id;
+    }
 
-    public function delete(User $user, diet_form $diet_form): bool {}
+    public function delete(User $user, diet_form $diet_form): bool
+    {
+        return $diet_form->user_id === $user->id;
+    }
 
-    public function restore(User $user, diet_form $diet_form): bool {}
+    public function restore(User $user, diet_form $diet_form): bool
+    {
+        return $diet_form->user_id === $user->id;
+    }
 
-    public function forceDelete(User $user, diet_form $diet_form): bool {}
+    public function forceDelete(User $user, diet_form $diet_form): bool
+    {
+        return $diet_form->user_id === $user->id;
+    }
 }
