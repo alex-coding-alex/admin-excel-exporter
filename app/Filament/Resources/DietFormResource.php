@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Enums\Diet;
+use App\Filament\Exports\DietFormExporter;
 use App\Filament\Imports\DietFormImporter;
 use App\Filament\Resources\diet_formResource\Pages;
 use App\Models\DietForm;
@@ -15,6 +16,7 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ExportAction;
 use Filament\Tables\Actions\ImportAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -62,6 +64,8 @@ class DietFormResource extends Resource
             ->headerActions([
                 ImportAction::make()
                     ->importer(DietFormImporter::class),
+                ExportAction::make()
+                    ->exporter(DietFormExporter::class),
             ])
             ->columns([
                 TextColumn::make('name')

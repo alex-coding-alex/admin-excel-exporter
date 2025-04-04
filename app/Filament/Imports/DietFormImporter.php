@@ -4,6 +4,8 @@ namespace App\Filament\Imports;
 
 use App\Enums\Diet;
 use App\Models\DietForm;
+use Carbon\Carbon;
+use Carbon\CarbonInterface;
 use Filament\Actions\Imports\ImportColumn;
 use Filament\Actions\Imports\Importer;
 use Filament\Actions\Imports\Models\Import;
@@ -57,5 +59,11 @@ class DietFormImporter extends Importer
         }
 
         return $body;
+    }
+
+    public function getJobRetryUntil(): ?CarbonInterface
+    {
+        // Do not use default filament retries and only retry once
+        return Carbon::now();
     }
 }
