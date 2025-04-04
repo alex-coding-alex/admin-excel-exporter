@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Enums\Diet;
+use App\Filament\Imports\DietFormImporter;
 use App\Filament\Resources\diet_formResource\Pages;
 use App\Models\DietForm;
 use Filament\Forms\Components\Checkbox;
@@ -14,6 +15,7 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ImportAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -57,6 +59,10 @@ class DietFormResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->headerActions([
+                ImportAction::make()
+                    ->importer(DietFormImporter::class),
+            ])
             ->columns([
                 TextColumn::make('name')
                     ->searchable()
