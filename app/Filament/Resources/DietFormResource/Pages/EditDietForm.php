@@ -2,13 +2,13 @@
 
 namespace App\Filament\Resources\diet_formResource\Pages;
 
-use App\Filament\Resources\diet_formResource;
+use App\Filament\Resources\DietFormResource;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
-class Editdiet_form extends EditRecord
+class EditDietForm extends EditRecord
 {
-    protected static string $resource = diet_formResource::class;
+    protected static string $resource = DietFormResource::class;
 
     protected function getHeaderActions(): array
     {

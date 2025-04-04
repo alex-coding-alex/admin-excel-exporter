@@ -3,7 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\diet_formResource\Pages;
-use App\Models\diet_form;
+use App\Models\DietForm;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -17,12 +17,15 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
-class diet_formResource extends Resource
+class DietFormResource extends Resource
 {
-    protected static ?string $model = diet_form::class;
+    protected static ?string $model = DietForm::class;
 
-    protected static ?string $slug = 'diet_forms';
+    protected static ?string $slug = 'diet-forms';
+
+    protected static ?string $label = 'Diet Forms';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -42,8 +45,9 @@ class diet_formResource extends Resource
                     ->required(),
 
                 Select::make('user_id')
+                    ->disabled()
                     ->relationship('user', 'name')
-                    ->searchable()
+                    ->default(Auth::user()->id)
                     ->required(),
             ]);
     }
@@ -83,9 +87,9 @@ class diet_formResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\Listdiet_forms::route('/'),
-            'create' => Pages\Creatediet_form::route('/create'),
-            'edit' => Pages\Editdiet_form::route('/{record}/edit'),
+            'index' => Pages\ListDietForms::route('/'),
+            'create' => Pages\CreateDietForm::route('/create'),
+            'edit' => Pages\EditDietForm::route('/{record}/edit'),
         ];
     }
 

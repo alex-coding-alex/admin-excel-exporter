@@ -2,14 +2,14 @@
 
 namespace Database\Factories;
 
-use App\Models\diet_form;
+use App\Models\DietForm;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
-class diet_formFactory extends Factory
+class DietFormFactory extends Factory
 {
-    protected $model = diet_form::class;
+    protected $model = DietForm::class;
 
     public function definition(): array
     {

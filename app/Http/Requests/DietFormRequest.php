@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class diet_formRequest extends FormRequest
+class DietFormRequest extends FormRequest
 {
     public function rules(): array
     {

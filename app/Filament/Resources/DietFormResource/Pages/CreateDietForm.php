@@ -2,12 +2,12 @@
 
 namespace App\Filament\Resources\diet_formResource\Pages;
 
-use App\Filament\Resources\diet_formResource;
+use App\Filament\Resources\DietFormResource;
 use Filament\Resources\Pages\CreateRecord;
 
-class Creatediet_form extends CreateRecord
+class CreateDietForm extends CreateRecord
 {
-    protected static string $resource = diet_formResource::class;
+    protected static string $resource = DietFormResource::class;
 
     protected function getHeaderActions(): array
     {
