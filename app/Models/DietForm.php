@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Diet;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -28,6 +29,7 @@ class DietForm extends Model
     {
         return [
             'allergies' => 'boolean',
+            'diet' => Diet::class,
         ];
     }
 }
