@@ -22,6 +22,10 @@ class DietFormImporter extends Importer
                 ->example('Jolenta')
                 ->requiredMapping()
                 ->rules(['required', 'max:255']),
+            ImportColumn::make('email')
+                ->example('test@example.com')
+                ->requiredMapping()
+                ->rules(['required', 'email', 'max:255']),
             ImportColumn::make('food_preference')
                 ->example('meat')
                 ->requiredMapping()

@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('diet_forms', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
+            $table->string('email')->unique();
             $table->string('food_preference');
             $table->boolean('allergies');
             $table->string('diet');

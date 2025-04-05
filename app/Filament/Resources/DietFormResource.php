@@ -41,6 +41,10 @@ class DietFormResource extends Resource
                 TextInput::make('name')
                     ->required(),
 
+                TextInput::make('email')
+                    ->required()
+                    ->email(),
+
                 TextInput::make('food_preference')
                     ->required(),
 
@@ -71,6 +75,8 @@ class DietFormResource extends Resource
                 TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
+
+                TextColumn::make('email'),
 
                 TextColumn::make('food_preference'),
 

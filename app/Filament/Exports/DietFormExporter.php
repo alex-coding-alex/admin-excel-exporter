@@ -19,6 +19,7 @@ class DietFormExporter extends Exporter
             ExportColumn::make('id')
                 ->label('ID'),
             ExportColumn::make('name'),
+            ExportColumn::make('email'),
             ExportColumn::make('food_preference'),
             ExportColumn::make('allergies'),
             // Enum export has special case
