@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\DietForm;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -11,7 +12,9 @@ class DietFormSubmittedNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    public function __construct() {}
+    public function __construct(
+        public DietForm $dietForm
+    ) {}
 
     public function via($notifiable): array
     {
