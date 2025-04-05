@@ -23,9 +23,16 @@ class DietFormSubmittedNotification extends Notification implements ShouldQueue
 
     public function toMail($notifiable): MailMessage
     {
+        $allergies = $this->dietForm->allergies ? 'Yes' : 'No';
+
         return (new MailMessage)
             ->greeting('Hello!')
-            ->line('Form has been submitted');
+            ->line('Form has been submitted')
+            ->line('Name: '.$this->dietForm->name)
+            ->line('Email: '.$this->dietForm->email)
+            ->line('Food Preferences: '.$this->dietForm->food_preference)
+            ->line('Allergies: '.$allergies)
+            ->line('Diet: '.$this->dietForm->diet->value);
     }
 
     public function toArray($notifiable): array
